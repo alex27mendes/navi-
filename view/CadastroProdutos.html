@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="col-lg-9" style="background-color: #fff; height: 500px; border : 1px solid red">
+      <section class="panel">
+          <header class="panel-heading">
+             Form Elements
+          </header>
+          <div class="panel-body">
+              <form name="myForm" class="form-horizontal " method="post">
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Nome</label>
+                      <div class="col-sm-8" >
+                          <input type="text" class="form-control" ng-model="produto.descricao">
+                      </div> 
+                      <button type="submit" class="btn btn-primary" ng-click="adicionarProduto(produto.descricao)"><span class="glyphicon glyphicon-plus"></span></button>
+                  </div>
+                  <div name="div1" class="form-group" ng-class="{'has-error': div1.preco.$invalid}">
+                      <label class="col-sm-2 control-label">Help text</label>
+                      <div class="col-sm-3">
+                          <input type="number" class="form-control" name="precoCompra" ng-model="produto.precoCompra" placeholder="Preço" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required disabled />
+                        <!--  <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span> -->
+                          <span class="help-block" ng-show="!div1.precoCompra.$valid">
+                                Invalid!
+                          </span>
+                      </div>
+                      <label class="col-sm-2 control-label">Help text</label>
+                      <div class="col-sm-3">
+                          <input type="number" class="form-control" name="precoVenda" ng-model="produto.precoVenda" placeholder="Preço" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" required disabled />
+                          <span class="help-block" ng-show="!div1.precoVenda.$valid">
+                                Invalid!
+                          </span>
+                      </div>
+                  </div>
+                  <div class="form-group" ng-class="{'has-error': div1.quandidade.$invalid}">
+                      <label class="col-sm-2 control-label">Quantidade:</label>
+                      <div class="col-sm-3">
+                          <input type="number" class="form-control" name="quantidade" ng-model="produto.quantidade" placeholder="Quantidade"  required disabled />
+                          <span class="help-block" ng-show="!div1.quantidade.$valid">
+                                Invalid!
+                          </span>
+                      </div>
+                      <label class="col-sm-2 control-label">Categoria:</label>
+                      <div class="col-sm-3">
+                            <select class="form-control" 
+                                    ng-model="produto.idcategoria" 
+                                    ng-options="categoria.idcategoria as categoria.nome  for categoria in categorias" >
+                                    <option value="">Selecione</option>
+                             </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                       <label class="col-sm-2 control-label" >Total:</label>
+                       <div class="col-sm-3">
+                          <input class="form-control" id="disabledInput" type="text" placeholder="Total" ng-model="produto.precototal" disabled>
+                      </div>   
+                 </div>
+                  <button type="submit" class="btn btn-primary" ng-click="adicionarProduto(produto)"><span class="glyphicon glyphicon-ok"></span> Cadastrar</button>
+              </form>
+          </div>
+      </section>                      
+   </div>
+</div>
