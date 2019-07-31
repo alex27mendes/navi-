@@ -9,5 +9,6 @@ angular.module("myApp").factory("produtosAPI", function ($http, config)){
    return {
        getClientes: _getClientes,
        saveCliente: _saveCliente
+	   //te
    };
 }
